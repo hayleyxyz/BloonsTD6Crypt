@@ -22,7 +22,7 @@ namespace bloonstd6crypt
 
         static void Usage()
         {
-            Console.WriteLine("Usage: bloonstd6crypt <encrypt|decrypt> <input> <output>");
+            Console.WriteLine("Usage: bloonstd6crypt [-e --encrypt | -d --decrypt] <input> <output>");
         }
 
         static void Main(string[] args)
@@ -39,7 +39,7 @@ namespace bloonstd6crypt
             var outputStream = File.OpenWrite(args[2]);
             var outputWriter = new BinaryWriter(outputStream);
 
-            if (args[0] == "encrypt")
+            if (args[0] == "-e" || args[0] == "--encrypt")
             {
                 var guid = Guid.NewGuid();
                 var dateTime = DateTime.Now;
@@ -80,7 +80,7 @@ namespace bloonstd6crypt
 
                 outputStream.Close();
             }
-            else if (args[0] == "decrypt")
+            else if (args[0] == "-d" || args[0] == "--decrypt")
             {
                 if (inputReader.ReadUInt32() != Magic)
                 {
