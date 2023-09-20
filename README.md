@@ -16,7 +16,7 @@ To decrypt a save:
 bloonstd6crypt -d Profile.Save Profile_decrypted.Save 
 ```
 
-To encrypt + calculate checksum:
+To encrypt:
 
 ```
 bloonstd6crypt -e Profile_edited.Save Profile.Save 
